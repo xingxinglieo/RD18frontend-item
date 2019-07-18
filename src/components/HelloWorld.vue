@@ -98,6 +98,7 @@ export default {
 <style scoped lang="scss">
 h1, h2 {
   font-weight: normal;
+
 }
 ul {
   list-style-type: none;
