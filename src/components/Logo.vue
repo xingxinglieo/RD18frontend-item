@@ -11,8 +11,8 @@
       style="enable-background:new 0 0 30 25"
       xml:space="preserve"
       width="10%"
-      fill = "#e74b37"
-    >
+	  fill="#e74b37"
+	  >
       <path
         class="st0"
         d="M9.18,14.52c0.27-0.79,0.8-0.17,1.14-0.39c0.13-0.08,0.26-0.18,0.3-0.33c0.07-0.23-0.1-0.48-0.32-0.58
