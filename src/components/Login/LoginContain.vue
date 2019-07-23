@@ -24,9 +24,9 @@
 	import Logo from "../Logo"
 	export default {
 		components: {
-			login,
-			register,
-			Logo
+			'login':login,
+			'register':register,
+			'Logo':Logo
 		},
 		data: function() {
 			return {
