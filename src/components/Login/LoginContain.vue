@@ -1,3 +1,4 @@
+<!-- 这是登录组件的父组件 布局框 -->
 <template>
 	<div id="outter">
 		<el-container style="flex-direction: column;padding: 0 20px 20px;">
@@ -79,14 +80,13 @@
 	}
 
 	#tragger {
-		justify-content: center;
 		background-color: #f6f6f6;
 		height: 45px;
 		line-height: 45px;
 		border-top: 1px solid #ebebeb;
 		font-size: 12px;
 		color: darkred;
-
+		text-align: center;
 		span {
 			&:hover {
 				cursor: pointer;

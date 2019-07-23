@@ -1,3 +1,4 @@
+<!-- 这是登录组件的 -->
 <template>
 	<div>
 		<from>
@@ -13,7 +14,7 @@
 				<span v-if="p_vis"><i class="el-icon-check"></i></span>
 				<span v-else><i class="el-icon-warning-outline"></i> 长度为8-16个字符,必须包含字母,数字,符号中的两种</span>
 			</el-popover>
-			<el-popover placement="right" trigger="hover">
+			<el-popover placement="right" trigger="click">
 				<el-button type="primary" plain slot="reference">注册</el-button>
 				<span><i class="el-icon-warning-outline"></i>邮箱或者密码格式错误</span>
 			</el-popover>
@@ -46,7 +47,7 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped="scoped">
 	.el-input,
 	.el-button {
 		margin-top: 10px;
