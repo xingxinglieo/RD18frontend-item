@@ -11,6 +11,7 @@
       style="enable-background:new 0 0 30 25"
       xml:space="preserve"
       width="10%"
+	  fill="#e74b37"
     >
       <path
         class="st0"
@@ -112,10 +113,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#logo {
-  margin-left: 80px;
-  margin-top: 50px;
-}
 .st0 {
   stroke-miterlimit: 10;
 }
