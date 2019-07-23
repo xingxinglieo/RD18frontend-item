@@ -1,8 +1,10 @@
 <template>
+<!-- 主界面上方 -->
   <div class="home">
     <logo></logo>
     <user></user>
     <search-bar></search-bar>
+    <to-front></to-front>
   </div>
 </template>
 
@@ -10,6 +12,7 @@
 import Logo from './Logo'
 import User from './User'
 import SearchBar from './SearchBar'
+import ToFront from './ToFront'
 
 export default {
   name: 'Home',
@@ -21,7 +24,8 @@ export default {
   components: {
     'logo': Logo,
     'user': User,
-    'search-bar': SearchBar
+    'search-bar': SearchBar,
+    'to-front': ToFront
   }
 }
 </script>

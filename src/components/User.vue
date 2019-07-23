@@ -1,4 +1,5 @@
 <template>
+<!-- 用户相关信息组件 -->
   <div class="user">
     <div class="avatar-chunk">
     <div
@@ -16,14 +17,14 @@
     <!-- 用户信息 -->
     <div
       v-bind:class="{ 'show-info': change, hide: !change}"
-      v-on:mouseover="change = !change, extend()"
+      v-on:mouseover="change = !change, extend ()"
       v-on:mouseout="change = !change, shrink()"
     >
       <!-- 判断用户是否登录，不同状态展示不同界面-->
 
       <!-- 未登录，展示去注册/登录按钮 -->
       <div class="to-login">
-        <button>登录 / 注册 倾旅</button>
+        <button v-on:click="toLogin()">登录 / 注册 倾旅</button>
       </div>
       <!-- 已登录，展示用户信息 -->
       <div class="info-chunk">
@@ -102,7 +103,7 @@
             </p>
           </div>
         </div>
-        <button>修改我的信息</button>
+        <router-link :to="{path: '/alterMyInfo'}"><button @click="alterMyInfo()">修改我的信息</button></router-link>
       </div>
     </div>
   </div>
@@ -110,6 +111,7 @@
 
 <script>
 import $ from 'jquery'
+
 
 export default {
   name: "User",
@@ -122,7 +124,7 @@ export default {
   methods: {
     // 展示登录注册界面
     login() {
-
+      
     },
     extend() {
        $("#user-avatar").toggleClass("hover-avatar user-avatar1");
@@ -134,6 +136,16 @@ export default {
       // $("#user-avatar").removeClass("hover-avatar");
        $("#user-avatar").toggleClass("hover-avatar user-avatar1");
 
+    },
+    toLogin() {
+      this.$router.push({
+        path: "/login"
+      })
+    },
+    alterMyInfo() {
+      // this.$router.push({
+      //   path: '/alterMyInfo'
+      // })
     }
 
   }
