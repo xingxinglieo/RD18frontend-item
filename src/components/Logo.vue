@@ -11,7 +11,8 @@
       style="enable-background:new 0 0 30 25"
       xml:space="preserve"
       width="10%"
-    >
+	  fill="#e74b37"
+	  >
       <path
         class="st0"
         d="M9.18,14.52c0.27-0.79,0.8-0.17,1.14-0.39c0.13-0.08,0.26-0.18,0.3-0.33c0.07-0.23-0.1-0.48-0.32-0.58
@@ -112,11 +113,34 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@keyframes logo-move {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+     transform: translateX(0)；
+  }
+}
 #logo {
   margin-left: 80px;
   margin-top: 50px;
 }
 .st0 {
+  position: absolute;
   stroke-miterlimit: 10;
+  -webkit-animation: logo-move 0.6s;
+     -moz-animation: logo-move 0.6s;
+       -o-animation: logo-move 0.6s;
+          animation: logo-move 0.6s;
+
+  -webkit-animation-fill-mode: forwards;
+     -moz-animation-fill-mode: forwards;
+       -o-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+
+  -webkit-animation-iteration-count: 1;
+     -moz-animation-iteration-count: 1;
+       -o-animation-iteration-count: 1;
+          animation-iteration-count: 1;
 }
 </style>
