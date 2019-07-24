@@ -4,9 +4,10 @@
 		<el-container style="flex-direction: column;padding: 0 20px 20px;">
 			<div><i class="el-icon-close"></i></div>
 			<div class="SignHeader">
-				<Logo></Logo>
+				<h1>倾旅</h1>
+				<!-- <Logo></Logo> -->
 				<h2 id="description">
-					倾旅,我的旅行印记
+				TravelTalking, 我的旅行印记
 				</h2>
 			</div>
 			<component :is="trag"></component>
@@ -50,12 +51,15 @@
 </script>
 <style lang="scss" scoped="scoped">
 	$red:#e74b37;
-	@import url("http://cdn.repository.webfont.com/webfonts/nomal/131834/19673/5d35bbb7f629d813c8601e7a.css");
+	@import url("http://cdn.repository.webfont.com/webfonts/nomal/131834/19673/5d373537f629d80ef05e7fa8.css");
 
 	#outter {
-		width: 420px;
+		width: 38%;
+		min-width: 300px;
+		max-width: 420px;
 		position: fixed;
-		top: 100px;
+		z-index: 2000;
+		top: 10%;
 		left: 50%;
 		transform: translateX(-50%);
 		border: 1px solid #DCDFE6;
@@ -70,12 +74,19 @@
 		#logo {
 			margin: 0px !important;
 		}
-
-		h2 {
+		h1{
+			margin-top: -20px;
+			font-size: 60px;
+		};
+		h2{
+			line-height: 45px;
+		};
+		h1,h2 {
 			color: $red;
 			text-align: center;
-			line-height: 30px;
-			font-family: 'jdzhonyuanjian1abf0e8c90202fa';
+			font-family: 'jdzhonyuanjian1ac4d12a5d202fa';
+			
+			
 		}
 	}
 

@@ -7,8 +7,9 @@ import axios from 'axios';
 import ElementUI from 'element-ui';
 import './element-variables.scss';
 import Vuex from 'vuex'; 
-Vue.prototype.$axios = axios;
 axios.defaults.baseURL = ''; //配置全局URL 待写
+axios.defaults.timeout = 2500;
+Vue.prototype.$axios = axios;
 Vue.use(Vuex); 
 Vue.use(ElementUI);
 Vue.config.productionTip = false
