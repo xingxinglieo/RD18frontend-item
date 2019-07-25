@@ -168,6 +168,9 @@ export default {
   transform: translateX(-50%);
   border-bottom: 1.5px solid #b1afaf;
 }
+.navigate-under {
+  z-index: -1;
+}
 .steer-point {
   position: relative;
   width: 50px;
