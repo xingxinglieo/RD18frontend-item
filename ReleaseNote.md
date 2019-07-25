@@ -4,6 +4,13 @@
 
 
 
+#### 7.25
+
+* 新增 vuex 全局变量 `showLoginContain(Boolean)` : 控制登录框显示状态
+* 新增 vuex 全局变量 `loginState(Boolean) ` : 记录登录状态
+* 优化 挂载登录框至全局 , 通过vuex中变量显示--显示方法 : 在mothod中调用`this.$store.commit('openLoginContain');`
+* 新增 登录框所有改变时的渐变动画 
+
 #### 7.23
 
 * 新增 [`vuex`](https://vuex.vuejs.org/zh/) 插件 ,  vuex 用于配置全局状态

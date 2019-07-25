@@ -8,28 +8,43 @@
 				<!-- 
 				1.检验邮箱格式是否正确
 				 -->
-				<span v-if="!isEmail"><i class="el-icon-warning-outline" slot="reference"></i> 邮箱格式不正确</span>
-				<i v-else class="el-icon-check" slot="reference"></i>
+
+				<span v-if="!isEmail"><i class="el-icon-warning-outline"></i> 邮箱格式不正确</span>
+				<el-collapse-transition slot="reference">
+					<div v-if="isEmail">
+						<i class="transition-box el-icon-check"></i>
+					</div>
+				</el-collapse-transition>
+
 			</el-popover>
 
 			<el-popover placement="right" width="120" trigger="focus" :disabled="isPassword">
 				<el-input placeholder="请输入密码" v-model="password" show-password slot="reference">
 				</el-input>
-				<i v-if="isPassword" class="el-icon-check" slot="reference"></i>
-
+				<el-collapse-transition slot="reference">
+					<div v-if="isPassword">
+						<i class="transition-box el-icon-check"></i>
+					</div>
+				</el-collapse-transition>
 				<span v-if="!isPassword"><i class="el-icon-warning-outline"></i> 长度为8-18个字符,必须包含字母,数字,符号中的两种</span>
 			</el-popover>
 			<el-input placeholder="请确认密码" v-model="confirm" show-password>
 			</el-input>
-			<span v-if="confirm!==''">
-				<span v-if="isConfirm"><i class="el-icon-check"></i></span>
-				<span v-else style="color: darkred;font-size: 14px;"><i class="el-icon-warning-outline"></i>  两次密码不相同</span>
-			</span>
-				<!-- 三个框有一个不满足 button就禁用
+			<el-collapse-transition>
+				<div v-if="confirm!==''">
+					<div style="height: 18px;position:relative;">
+						<transition name="el-fade-in">
+							<i v-if="isConfirm" class="el-icon-check" style="position: absolute;"></i>
+							<span v-else class="transition-box" style="color: darkred;font-size: 14px;position:absolute;"><i class="el-icon-warning-outline"></i>
+								两次密码不相同</span>
+						</transition>
+					</div>
+				</div>
+			</el-collapse-transition>
+			<!-- 三个框有一个不满足 button就禁用
 					点击后开启节流,数据返回才解禁
 				 -->
-				<el-button type="primary" plain slot="reference" @click="sendRegisterRequest" 
-				:disabled="!allRight || throttle">注册</el-button>
+			<el-button type="primary" plain slot="reference" @click="sendRegisterRequest" :disabled="!allRight || throttle">注册</el-button>
 		</form>
 	</div>
 </template>
@@ -59,30 +74,29 @@
 						this.throttle = false;
 						if (data.result === 'success') {
 							this.$message({
-								message : '注册成功',
-								type: 'success' ,
-								center: true , 
-								
+								message: '注册成功',
+								type: 'success',
+								center: true,
+
 							})
-							
-						}
-						else{
+
+						} else {
 							this.$message({
-								message : '注册失败 , 此邮箱已注册',
-								type: 'error' , 
-								center :true,
-								duration :1500,
+								message: '注册失败 , 此邮箱已注册',
+								type: 'error',
+								center: true,
+								duration: 1500,
 							})
-							
+
 						}
 					})
-					.catch(data =>{
+					.catch(data => {
 						this.throttle = false;
 						this.$message({
-							message : '连接失败 , 请检查网络或者联系管理员',
-							type: 'error' , 
-							center :true,
-							duration :1500,
+							message: '连接失败 , 请检查网络或者联系管理员',
+							type: 'error',
+							center: true,
+							duration: 1500,
 						})
 					})
 			},
