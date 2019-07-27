@@ -15,7 +15,7 @@ Vue.use(ElementUI);
 Vue.config.productionTip = false
 const store = new Vuex.Store({
 	state:{
-		showLoginContain:true,
+		showLoginContain:false,
 		loginState:false,
 	},
 	getters:{

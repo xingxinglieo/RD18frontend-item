@@ -1,18 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Page from '@/components/fy/Page'
-import HelloWorld from '@/components/HelloWorld'
 import Home from '@/components/Home/Home'
 import AlterUserInfo from '@/components/Alter-info/AlterInfo'
 import AlterMailboxOrPassword from '@/components/Alter-info/AlterMailboxOrPassword'
+import Upload from '@/components/Release/Upload'
 Vue.use(Router)
 
 export default new Router({
-	routes: [{
-			path: '/',
-			name: 'HelloWorld',
-			component: HelloWorld
-		},
+	routes: [
 		{
 			path: '/page',
 			component: Page
@@ -28,6 +24,10 @@ export default new Router({
 		{
 			path: '/alterMailboxOrPassword',
 			component: AlterMailboxOrPassword
+		},
+		{
+			path: '/upload',
+			component: Upload
 		},
 
 	],

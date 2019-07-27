@@ -10,37 +10,45 @@
 				 -->
 
 				<span v-if="!isEmail"><i class="el-icon-warning-outline"></i> 邮箱格式不正确</span>
-				<el-collapse-transition slot="reference">
-					<div v-if="isEmail">
-						<i class="transition-box el-icon-check"></i>
-					</div>
-				</el-collapse-transition>
+				<div class="blank" slot="reference">
+					<transition name="el-fade-in">
+						<div v-if="isEmail">
+							<i class="transition-box el-icon-check"></i>
+						</div>
+					</transition>
+				</div>
+				
 
 			</el-popover>
 
 			<el-popover placement="right" width="120" trigger="focus" :disabled="isPassword">
 				<el-input placeholder="请输入密码" v-model="password" show-password slot="reference">
 				</el-input>
-				<el-collapse-transition slot="reference">
-					<div v-if="isPassword">
-						<i class="transition-box el-icon-check"></i>
-					</div>
-				</el-collapse-transition>
+				<div class="blank" slot="reference">
+					<transition name="el-fade-in">
+						<div v-if="isPassword">
+							<i class="transition-box el-icon-check"></i>
+						</div>
+					</transition>
+				</div>
 				<span v-if="!isPassword"><i class="el-icon-warning-outline"></i> 长度为8-18个字符,必须包含字母,数字,符号中的两种</span>
 			</el-popover>
 			<el-input placeholder="请确认密码" v-model="confirm" show-password>
 			</el-input>
-			<el-collapse-transition>
-				<div v-if="confirm!==''">
-					<div style="height: 18px;position:relative;">
-						<transition name="el-fade-in">
-							<i v-if="isConfirm" class="el-icon-check" style="position: absolute;"></i>
-							<span v-else class="transition-box" style="color: darkred;font-size: 14px;position:absolute;"><i class="el-icon-warning-outline"></i>
-								两次密码不相同</span>
-						</transition>
+			<div class="blank">
+				<transition name="el-fade-in">
+					<div v-if="confirm!==''">
+						<div style="height: 18px;position:relative;">
+							<transition name="el-fade-in">
+								<i v-if="isConfirm" class="el-icon-check" style="position: absolute;"></i>
+								<span v-else class="transition-box" style="color: darkred;font-size: 14px;position:absolute;"><i class="el-icon-warning-outline"></i>
+									两次密码不相同</span>
+							</transition>
+						</div>
 					</div>
-				</div>
-			</el-collapse-transition>
+				</transition>
+			</div>
+			
 			<!-- 三个框有一个不满足 button就禁用
 					点击后开启节流,数据返回才解禁
 				 -->
@@ -121,11 +129,9 @@
 </script>
 
 <style lang="scss" scoped="scoped">
-	.el-input,
-	.el-button {
-		margin-top: 10px;
+	.blank{
+		height: 20px
 	}
-
 	.el-popover {
 		min-width: 0px !important;
 	}

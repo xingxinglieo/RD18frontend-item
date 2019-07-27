@@ -6,22 +6,21 @@
 				</el-input>
 				<span><i class="el-icon-warning-outline"></i> 邮箱格式不正确</span>
 			</el-popover>
+			<div class="blank"></div>
 			<el-input placeholder="请输入密码" v-model="password" show-password></el-input>
+			<div class="blank"></div>
 			<el-popover placement="right" trigger="focus" :disabled="isVerify">
-				<el-input placeholder="请输入验证码" v-model="verifyCode" style="width: 31%;" slot="reference"></el-input>
+				<el-input placeholder="请输入验证码" v-model="verifyCode" style="width: 33%;" slot="reference"></el-input>
 				<span><i class="el-icon-warning-outline"></i> 请输入验证码</span>
 			</el-popover>
-			<!-- <div style="font-size: 14px;color: #E74B37;margin-top: 5px;">
-			<span v-if><i class="el-icon-warning-outline"></i>验证码错误</span>
-			<span><i class="el-icon-check"></i></span>
-			</div> -->
+			<div class="blank"></div>
 			<el-popover placement="right" trigger="hover" :disabled="isVerify&&isEmail">
 				<span><i class="el-icon-warning-outline"></i> 请检查邮箱格式或输入验证码</span>
 				<el-button type="primary" plain slot="reference" @click="sendLoginRequest" :disabled="throttle">登录</el-button>
 			</el-popover>
 		</form>
 	</div>
-
+	
 </template>
 
 <script>
@@ -105,11 +104,9 @@
 </script>
 
 <style lang="scss" scoped="scoped">
-	.el-input,
-	.el-button {
-		margin-top: 10px;
+	.blank{
+		height: 20px
 	}
-
 	.el-popover {
 		min-width: 0;
 	}

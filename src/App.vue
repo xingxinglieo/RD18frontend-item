@@ -1,10 +1,10 @@
 <template>
-		<div id="app">
+		<div id="app" @click="$store.commit('closeLoginContain');">
 			<router-view></router-view>
 			<login-contain></login-contain>
 		</div>
 </template>
-
+ 
 <script>
 	import logincontain from '@/components/Login/LoginContain';
 	export default {
@@ -12,11 +12,13 @@
 		components:{
 			'login-contain':logincontain,
 		},
+		methods:{
+		},
 		data() {
 			return {
 
 			}
-		}
+		},
 	}
 </script>
 

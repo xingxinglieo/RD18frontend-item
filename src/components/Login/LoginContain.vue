@@ -1,8 +1,8 @@
 <!-- 这是登录组件的父组件 布局框 -->
 <template>
 	<transition name="el-fade-in">
-		<div id="outter" v-if="show">
-			<el-container style="flex-direction: column;padding: 0 20px 20px;">
+		<div id="outter" v-if="show" @click.stop="">
+			<el-container style="flex-direction: column;padding: 0 25px 20px;">
 				<div><i class="el-icon-close" @click="closeLoginContain"></i></div>
 				<div class="SignHeader">
 					<h1>倾旅</h1>
@@ -67,6 +67,8 @@
 		width: 38%;
 		min-width: 300px;
 		max-width: 420px;
+		background-image: url(../../assets/background.jpg);
+		background-size: cover;
 		position: fixed;
 		z-index: 2000;
 		top: 10%;
