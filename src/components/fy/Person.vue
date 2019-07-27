@@ -3,30 +3,34 @@
 		<img src="../../assets/qq2.jpg" class="back">
 		<div class="person-data">
 			<img src="../../assets/head.jpeg" class="head">
-      <div class="main-material">
-        <h3 class="name">喜之郎</h3>
-        <p class="material sign">回家是最好的礼物</p>
-         <p class="material">
-					<svg class="icon" aria-hidden="true"> 
-      			<use xlink:href="#icondidian"></use>
-    			</svg>
-					地址：广州
-				</p>
-        <p class="material">
-					<svg class="icon" aria-hidden="true"> 
-      			<use xlink:href="#iconyouxiang"></use>
-    			</svg>
-					邮箱：123123@123.com
-				</p>
-    </div>
-		<div class="want material">
-			<div class="went">
-				<h4 class="go">去过：</h4>
-				<p class="spot"></p>
+			<div class="main-material">
+			<h3 class="name">喜之郎</h3>
+			<p class="material sign">回家是最好的礼物</p>
+			<p class="material">
+						<svg class="icon" aria-hidden="true"> 
+					<use xlink:href="#icondidian"></use>
+					</svg>
+						地址：广州
+					</p>
+			<p class="material">
+						<svg class="icon" aria-hidden="true"> 
+					<use xlink:href="#iconyouxiang"></use>
+					</svg>
+						邮箱：123123@123.com
+					</p>
 			</div>
-			<div class="went">
-				<h4 class="go">去过：</h4>
-				<p class="spot"></p>
+			<div class="publish">
+			<div class="publish-travel">
+				<svg class="icon" aria-hidden="true"> 
+      				<use xlink:href="#iconyouxi"></use>
+    			</svg>
+				发布游记
+			</div>
+			<div class="publish-photo">
+				<svg class="icon" aria-hidden="true"> 
+      				<use xlink:href="#icontianjiazhaopian"></use>
+    			</svg>
+				发布照片
 			</div>
 		</div>
 		</div>
@@ -37,11 +41,17 @@
 
  export default {
 	name: "person",
+	method: {
+		more() {
+
+		}
+	}
  }
 
 </script>
 
-<style>
+ <style lang="scss" scoped>
+
 .person {
 	position: relative;
 	overflow: hidden;
@@ -83,6 +93,7 @@
 .material {
     color: rgb(79, 78, 78);
     font-size: 15px;
+	margin: 10px 0;
 }
 
 .material.sign {
@@ -92,14 +103,20 @@
 .name {
     color: #222221; 
     font-size: 22px;
+	margin: 20px 0 24px;
 }
 
-.want {
+.publish {
 	float: right;
+	margin: 75px 30px;
 }
 
-.went {
-
+.publish-travel,
+.publish-photo {
+	cursor: pointer;
+	font-size: 22px;
+	color: rgb(68, 68, 68);
+	margin: 20px;
 }
 
 </style>
