@@ -19,18 +19,12 @@
 						邮箱：123123@123.com
 					</p>
 			</div>
-			<div class="publish">
-			<div class="publish-travel">
-				<svg class="icon" aria-hidden="true"> 
-      				<use xlink:href="#iconyouxi"></use>
-    			</svg>
-				发布游记
-			</div>
+		<div class="publish">
 			<div class="publish-photo">
 				<svg class="icon" aria-hidden="true"> 
       				<use xlink:href="#icontianjiazhaopian"></use>
     			</svg>
-				发布照片
+				发布游记/发布照片
 			</div>
 		</div>
 		</div>
@@ -111,7 +105,6 @@
 	margin: 75px 30px;
 }
 
-.publish-travel,
 .publish-photo {
 	cursor: pointer;
 	font-size: 22px;

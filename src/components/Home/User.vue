@@ -32,15 +32,6 @@
         <div class="detail-info">
           <div class="each-info">
             <svg class="icon" aria-hidden="true">
-              <use xlink:href="#iconid" />
-            </svg>
-            <p>
-              ID:
-              <span></span>
-            </p>
-          </div>
-          <div class="each-info">
-            <svg class="icon" aria-hidden="true">
               <use xlink:href="#iconxingbie" />
             </svg>
             <p>
@@ -103,7 +94,7 @@
             </p>
           </div>
         </div>
-        <router-link :to="{path: '/alterMyInfo'}"><button @click="alterMyInfo()">修改我的信息</button></router-link>
+        <router-link :to="{ path: '/alterMyInfo' }"><button>修改我的信息</button></router-link>
       </div>
     </div>
   </div>
@@ -128,24 +119,16 @@ export default {
     },
     extend() {
        $("#user-avatar").toggleClass("hover-avatar user-avatar1");
-      // $("#user-avatar").removeClass("user-avatar1");
-      
+        $(".navigation").css('z-index','-1');
     },
     shrink() {
-      // $("#user-avatar").addClass("user-avatar1");
-      // $("#user-avatar").removeClass("hover-avatar");
        $("#user-avatar").toggleClass("hover-avatar user-avatar1");
-
+       $(".navigation").css('z-index','1');
     },
     toLogin() {
       this.$router.push({
         path: "/login"
       })
-    },
-    alterMyInfo() {
-      // this.$router.push({
-      //   path: '/alterMyInfo'
-      // })
     }
 
   }
@@ -244,7 +227,7 @@ export default {
 }
 .show-info {
   display: block;
-  
+
   width: 250px;
   height: auto;
   border-radius: 10px;
@@ -295,9 +278,9 @@ export default {
   outline: none;
   cursor: pointer;
   -webkit-transition: background-color 0.5s;
-  -moz-transition: background-color 0.5s;
-  -o-transition: background-color 0.5s;
-  transition: background-color 0.5s;
+     -moz-transition: background-color 0.5s;
+       -o-transition: background-color 0.5s;
+          transition: background-color 0.5s;
 }
 .to-login button:hover,
 .info-chunk button:hover {

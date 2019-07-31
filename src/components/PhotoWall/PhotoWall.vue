@@ -11,27 +11,6 @@
         </div>
 		<div id="photos">
             <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
-            <photo></photo>
         </div>
 	</div>
 </template>

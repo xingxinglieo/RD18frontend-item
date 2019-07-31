@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Logo from './Logo'
+import Logo from '../Logo'
 import User from './User'
 import SearchBar from './SearchBar'
 import ToFront from './ToFront'
@@ -33,7 +33,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .home {
-  background: url("../assets/background.jpg") no-repeat;
+  background: url("../../assets/background.jpg") no-repeat;
   background-attachment: fixed;
   background-size: 100%;
 }
