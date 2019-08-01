@@ -3,7 +3,10 @@
 ****
 
 
+#### 8.1
 
+* 新增 上传游记框
+* 新增 已配置全局url http://47.112.212.177/qinglv
 #### 7.25
 
 * 新增 vuex 全局变量 `showLoginContain(Boolean)` : 控制登录框显示状态
