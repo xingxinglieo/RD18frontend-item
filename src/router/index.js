@@ -5,6 +5,7 @@ import Home from '@/components/Home/Home'
 import AlterUserInfo from '@/components/Alter-info/AlterInfo'
 import AlterMailboxOrPassword from '@/components/Alter-info/AlterMailboxOrPassword'
 import Upload from '@/components/Release/Upload'
+import cardNote from '@/components/CardNote/cardNote'
 Vue.use(Router)
 
 export default new Router({
@@ -29,6 +30,10 @@ export default new Router({
 			path: '/upload',
 			component: Upload
 		},
+		{
+			path: '/cardnote',
+			component: cardNote
+		}
 
 	],
 	mode: 'history'

@@ -34,7 +34,7 @@ export default {
 ul {
   list-style: none;
 }
-li {
-  /* position: absolute; */
-}
+/* li {
+   position: absolute; 
+} */
 </style>
