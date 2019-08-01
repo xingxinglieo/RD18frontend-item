@@ -35,11 +35,6 @@
 
  export default {
 	name: "person",
-	method: {
-		more() {
-
-		}
-	}
  }
 
 </script>

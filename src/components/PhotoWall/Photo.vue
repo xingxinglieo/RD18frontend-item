@@ -1,6 +1,6 @@
 <template>
 	<div class="photo">
-		<div class="photo-main-box"  v-for="(item,index) in posts" :key="item.name">
+		<div class="photo-main-box"  v-for="(item,index) in posts" :key="item.id">
 			<div class="photo-box" v-on:mouseover="displayBlock(index)" v-on:mouseout="displayNone(index)">
 				<div class="revise-main none">
 					<div class="revise-down" @click="item.show = !item.show,revise(item.show,index)">
@@ -9,13 +9,13 @@
 						</svg>
 					</div>
 					<ul class="revise-box none">
-						<li class="revise">修改名字</li>
-						<li class="revise">修改备注</li>
-						<li class="revise">修改标签</li>
+						<li class="revise-name" @click="reviseName()">修改名字</li>
+						<li class="revise-note" @click="reviseNote()">修改备注</li>
+						<li class="revise-tab" @click="reviseTab()">修改标签</li>
 					</ul>
 				</div>
 				<div class="photos-box">
-					<img :src="item.url" class="photos" alt="item.name">
+					<img :src="item.photoUrl" class="photos" alt="item.name" :id="item.id">
 				</div>
 				<div class="remarks none">
 					<div class="remark-name" :title="item.name">{{item.name}}</div>
@@ -23,12 +23,12 @@
 						<svg class="icon" aria-hidden="true"> 
       						<use xlink:href="#iconbiaoqian3-copy"></use>
     					</svg>
-						{{item.tab}}
+						{{item.tabId}}
 					</div>
-					<div class="remark" :title="item.content">{{item.content}}</div>
-				</div>
+					<div class="remark" :title="item.content">{{item.note}}</div>
+				</div> 
 			</div>
-			<p class="publish-time">{{item.time}}</p>
+			<p class="publish-time">{{item.depositTime}}</p>
 		</div>
 	</div>
 </template>
@@ -44,31 +44,40 @@ import qq2 from '../../assets/qq2.jpg'
 	data() {
 		return {
 			posts: [
-				{time: '67897',
-				url: qq,
-				content: '复活甲诶傲娇覅',
-				name: "的呵呵地饿哦黑胶碟间谍",
-				id: '1',
-				tab:'垃圾代码里',
-				show:false},
-				{time: '4545',
-				url: qq2,
-				content: 'ejrfiodewfopewpo ',
-				name: "fre",
-				id: '2',
-				tab:'sjb',
-				show:false},
-				{time: '4545',
-				url: qq2,
-				content: 'ejrfiodewfopewpo ',
-				name: "hik",
-				id: '3',
-				tab:'sj',
-				show:false}
+				{"id": "",
+				"photoUrl": "",
+				"userId": "",
+				"note": "",
+				"depositTime": "error",
+				"tabId": "",
+				"name": "",
+				"show":false}
 			]
 		}
 	},
+	created() {
+		this.drawPhoto();
+	},
 	methods: {
+		drawPhoto() {
+			this.$axios.get(
+					'/photoWall/tab/photos',{
+						params: {
+							tabId:1,
+							num:1,
+							size:24
+						},
+						timeout:50000
+					})
+				.then(data => {
+					if(data.message === 'success') {
+						this.posts = data.message
+					}else {
+						console.log("error");
+					}
+			})
+
+		},
 		displayBlock:function(index) {
 			var count1 = document.getElementsByClassName('remarks')[index];
 			var revise1 = document.getElementsByClassName('revise-main')[index];
@@ -97,6 +106,12 @@ import qq2 from '../../assets/qq2.jpg'
 <style lang="scss" scoped>
 
 .photo {
+	float: left;
+    width: 650px;
+    height: 1400px;
+    background: #ffffff;
+    padding: 40px 15px 80px;
+    overflow: hidden;
 	-moz-user-select: none; /*火狐*/
 	-webkit-user-select: none; /*webkit浏览器*/
 	-ms-user-select: none; /*IE10*/
@@ -223,7 +238,9 @@ import qq2 from '../../assets/qq2.jpg'
     box-shadow: 0 0 2px rgba(0,0,0,.15);
 }
 
-.revise {
+.revise-name,
+.revise-note,
+.revise-tab {
 	cursor: pointer;
 	color: #262626;
     display: block;

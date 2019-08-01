@@ -48,7 +48,7 @@
 				}
 				this.throttle = true;
 				this.$axios.post(
-						'/user/login', {
+						'http://47.112.212.177:80/qinglv/user/login', {
 							params: {
 								userName: this.email,
 								password: this.password,
