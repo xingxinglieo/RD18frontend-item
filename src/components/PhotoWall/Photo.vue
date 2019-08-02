@@ -44,13 +44,13 @@ import qq2 from '../../assets/qq2.jpg'
 	data() {
 		return {
 			posts: [
-				{"id": "",
-				"photoUrl": "",
-				"userId": "",
-				"note": "",
+				{"id": "222",
+				"photoUrl": "22222",
+				"userId": "2222",
+				"note": "2222",
 				"depositTime": "error",
-				"tabId": "",
-				"name": "",
+				"tabId": "222",
+				"name": "2222",
 				"show":false}
 			]
 		}

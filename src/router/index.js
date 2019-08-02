@@ -4,8 +4,9 @@ import Page from '@/components/PhotoWall/Page'
 import Home from '@/components/Home/Home'
 import AlterUserInfo from '@/components/Alter-info/AlterInfo'
 import AlterMailboxOrPassword from '@/components/Alter-info/AlterMailboxOrPassword'
-import uploadcontent from '@/components/Release/uploadcontent'
+import uploadcontent from '@/components/Release/upload'
 import cardNote from '@/components/CardNote/cardNote'
+import onlyphoto from '@/components/Release/onlyphoto'
 Vue.use(Router)
 export default new Router({
 	routes: [
@@ -32,6 +33,10 @@ export default new Router({
 		{
 			path: '/cardnote',
 			component: cardNote
+		},
+		{
+			path:'/onlyphoto',
+			component:onlyphoto 
 		}
 
 	],

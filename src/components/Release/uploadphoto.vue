@@ -12,10 +12,10 @@
         arrow="always"
         indicator-position="none"
         :autoplay="false"
-        style="height: 300px;width: 300px;margin: 0px auto;"
+        style="height: 500px;width: 500px;margin: 0px auto;"
       >
         <el-carousel-item v-for="item in fileurl" :key="item.url">
-          <img :src="item.url" width="100%" height="100%" />
+          <span :style="'background-image:url('+ item.url +')'" ></span>          
         </el-carousel-item>
       </el-carousel>
       <div id="upload">
@@ -64,7 +64,7 @@ export default {
       dialogVisible: false,
       noAuto: false,
       fileurl: [],
-      limit: 8
+      limit: 9
     };
   },
   props: {
@@ -108,11 +108,23 @@ $scan: 38px;
   li.el-upload-list__item.is-ready {
     width: $scan;
     height: $scan;
+    margin-bottom: 0px;
+    border: none;
   }
   #upload {
     display: flex;
     justify-content: center;
-    margin-top: 12px;
+    height:$scan;
+    margin-top: 8px;
+  }
+  .el-carousel__item span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    /* margin: 0 0 0 -40px; */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
   .el-upload-list__item-actions {
     font-size: 13px;
@@ -122,6 +134,9 @@ $scan: 38px;
     width: $scan;
     line-height: $scan;
   }
+  .el-carousel__container{
+    height: 100%;
+  }
   .el-upload--picture-card i {
     font-size: 17px;
   }
@@ -129,5 +144,9 @@ $scan: 38px;
     letter-spacing: -5px;
     text-indent: -2px;
   }
+  
 }
+.v-modal{
+    display:none;
+  }
 </style>

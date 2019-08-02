@@ -20,8 +20,8 @@ export default {
       text: "",
       isShow: false,
       emoji: null, //指向不同数组的指针
-      textareadom:{},
-      loseBlurTextStart:0,
+      textareadom: {},
+      loseBlurTextStart: 0,
       emojichange: ["😄", "🍚", "🚲", "🐶", "✍"],
       emojiFaces: [
         "😁",
@@ -316,8 +316,8 @@ export default {
       ]
     };
   },
-  props:{
-    bindInputTextrea:String,
+  props: {
+    bindInputTextrea: String
   },
   created: function() {
     this.emoji = this.emojiFaces;
@@ -325,9 +325,9 @@ export default {
   mounted: function() {
     document.addEventListener("click", this.addClick);
     this.textareadom = document.querySelector(this.bindInputTextrea);
-    this.textareadom.addEventListener("blur",()=>{
+    this.textareadom.addEventListener("blur", () => {
       this.loseBlurTextStart = this.textareadom.selectionStart;
-    }); 
+    });
   },
   beforeDestroy: function() {
     document.removeEventListener("click", this.addClick);
@@ -366,28 +366,28 @@ export default {
       return source.slice(0, start) + newStr + source.slice(start);
     },
     myemoji(event) {
-      if(event.target.className.indexOf("emoji") !== -1){
-       this.textareadom.value = this.inserStr(this.textareadom.value,this.loseBlurTextStart,event.target.innerText )
-        // this.isShow = false;
-        this.setCaretPosition(this.textareadom,this.loseBlurTextStart+2);
-        this.loseBlurTextStart = this.loseBlurTextStart+3;
+      if (event.target.className.indexOf("emoji") !== -1) {
+        this.textareadom.value = this.inserStr(
+          this.textareadom.value,
+          this.loseBlurTextStart,
+          event.target.innerText
+        );
+        this.setCaretPosition(this.textareadom, this.loseBlurTextStart + 2);
+        this.loseBlurTextStart = this.loseBlurTextStart + 3;
       }
     },
-  setCaretPosition(ctrl, pos){
-  if(ctrl.setSelectionRange)
-  {
-    ctrl.focus();
-    ctrl.setSelectionRange(pos,pos);
-  }
-  else if (ctrl.createTextRange) {
-    var range = ctrl.createTextRange();
-    range.collapse(true);
-    range.moveEnd('character', pos);
-    range.moveStart('character', pos);
-    range.select();
-  }
-
-},
+    setCaretPosition(ctrl, pos) {
+      if (ctrl.setSelectionRange) {
+        ctrl.focus();
+        ctrl.setSelectionRange(pos, pos);
+      } else if (ctrl.createTextRange) {
+        var range = ctrl.createTextRange();
+        range.collapse(true);
+        range.moveEnd("character", pos);
+        range.moveStart("character", pos);
+        range.select();
+      }
+    },
     changeshow() {
       this.isShow = !this.isShow;
     }
@@ -396,11 +396,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 #wrapper {
-  width: 315px;
+  width: 218px;
   position: absolute;
-  bottom: 39.5px;
-  left: -20px;
-  z-index:10;
+  bottom: 32px;
+  left: -13px;
+  z-index: 10;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -428,13 +428,17 @@ export default {
   }
   #switch {
     display: flex;
-    width: 335px;
+    width: 238px;
     background: #f2f6fc;
+    border-radius: 4px;
+    box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.2);
     .switches {
       height: 30px;
       line-height: 30px;
       text-align: center;
+      box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.1);
       flex: 1;
+      border-radius: 4px;
       font-size: 18px;
       &:hover {
         cursor: pointer;

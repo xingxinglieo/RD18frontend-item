@@ -23,6 +23,7 @@ const store = new Vuex.Store({
 	},
 	mutations:{
 		closeLoginContain(state){
+			if(state.showLoginContain === true)
 			state.showLoginContain = false;
 		},
 		openLoginContain(state){
