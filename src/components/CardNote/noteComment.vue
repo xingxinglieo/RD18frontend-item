@@ -6,7 +6,7 @@
 			    <use xlink:href="#iconpinglun" ></use>
   			</svg>
 			</i>
-      
+      <span class="brief">笔记评论</span>
     </h3>
   </div>
 </template>
