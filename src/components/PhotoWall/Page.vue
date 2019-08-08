@@ -1,13 +1,8 @@
 <template>
 	<div class="page">
 		<person></person>
-		<div class="photo-wall">
-			<photo></photo>
-			<photo></photo>
-			<photo></photo>
-			<photo></photo>
-			<photo></photo>
-		</div>
+		<naviga></naviga>
+		<photo-wall></photo-wall>
 	</div>
 </template>
 
@@ -16,19 +11,23 @@
 
 import Photo from './Photo'
 import Person from './Person'
+import Naviga from './Naviga'
+import PhotoWall from './PhotoWall'
 
  export default {
 	name: "page",
 	components: {
 		'photo': Photo,
-		'person': Person
+		'person': Person,
+		'naviga': Naviga,
+		'photo-wall': PhotoWall
 	}
  }
 
 </script>
 
 
-<style>
+<style lang="scss" scoped="scoped">
 #app .page {
 	text-align: start;
 	background: rgb(186, 210, 233);
@@ -48,6 +47,5 @@ import Person from './Person'
 	width: 800px;
 	height: 880px;
 	background: #f9faf3;
-	border: 0.5px solid #dedede;
 }
 </style>

@@ -1,13 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
-import Page from '@/components/fy/Page'
 import Interface from '@/components/Home/Interface'
 import logincontain from '@/components/Login/LoginContain'
 import WaterFall from '@/components/Home/WaterFall'
 import Recommendation from '@/components/Recommendation/navigation_face/OfficialNavigation'
+import Page from '@/components/PhotoWall/Page'
+import AlterUserInfo from '@/components/Alter-info/AlterInfo'
+import AlterMailboxOrPassword from '@/components/Alter-info/AlterMailboxOrPassword'
+import uploadcontent from '@/components/Release/upload'
+import cardNote from '@/components/CardNote/cardNote'
+import onlyphoto from '@/components/Release/onlyphoto'
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {
@@ -107,7 +111,19 @@ export default new Router({
     {
       path: '/alterMailboxOrPassword',
       component: () => import('@/components/Alter_info/AlterMailboxOrPassword')
+    },
+    {
+      path: '/upcontent',
+      component: uploadcontent
+    },
+    {
+      path: '/cardnote',
+      component: cardNote
+    },
+    {
+      path: '/onlyphoto',
+      component: onlyphoto
     }
   ],
-  mode: 'history',
+  mode: 'history'
 })
