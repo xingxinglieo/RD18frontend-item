@@ -3,6 +3,7 @@
  <div>
    <home></home>
    <programa></programa>
+   
  </div>
 </template>
 

@@ -2,7 +2,7 @@
 <!-- 搜索框组件 -->
     <form class="search">
       <input type="text" placeholder="搜索" autocomplete="off">
-      <button type="submit" v-on:mouseover="put = !put"
+      <button type="button" v-on:mouseover="put = !put"
       v-on:mouseout="put = !put">
         <svg class="icon" aria-hidden="true" v-show="put == false">
           <use xlink:href="#iconsoushuo" />
@@ -35,7 +35,6 @@ export default {
   left: 50%;
   top: 18%;
   transform: translateX(-50%);
-
 }
 .search input {
   width: 380px;

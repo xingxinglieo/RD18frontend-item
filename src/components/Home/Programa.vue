@@ -2,25 +2,23 @@
 <!-- 主界面下方 -->
   <div class="programa">
     <navigation></navigation>
-    <waterfall></waterfall>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import Navigation from './Navigation'
-import Waterfall from './WaterFall'
 
 export default {
   name: 'programa',
   data () {
     return {
-      
+      active: 'fall'
     }
   },
   components: {
     'navigation': Navigation,
-     'waterfall': Waterfall
-  }
+  },
 }
 </script>
 
