@@ -10,29 +10,30 @@ import Vuex from 'vuex';
 axios.defaults.baseURL = 'http://47.112.212.177:80/qinglv'; //配置全局URL 待写
 axios.defaults.timeout = 2500;
 Vue.prototype.$axios = axios;
-Vue.use(Vuex); 
+Vue.use(Vuex);
 Vue.use(ElementUI);
 Vue.config.productionTip = false;
 const store = new Vuex.Store({
-	state:{
-		showLoginContain:false,
-		loginState:false,
-	},
-	getters:{
-		
-	},
-	mutations:{
-		closeLoginContain(state){
-			if(state.showLoginContain === true)
-			state.showLoginContain = false;
-		},
-		openLoginContain(state){
-			state.showLoginContain = true;
-		},
-		chageLoginState(state){
-			state.loginState = !state.loginState;
-		}
-	},
+  state: {
+    showLoginContain: false,
+    loginState: false,
+    userId : 1,
+  },
+  getters: {
+
+  },
+  mutations: {
+    closeLoginContain(state) {
+      if (state.showLoginContain === true)
+        state.showLoginContain = false;
+    },
+    openLoginContain(state) {
+      state.showLoginContain = true;
+    },
+    chageLoginState(state) {
+      state.loginState = !state.loginState;
+    }
+  },
 })
 
 /* eslint-disable no-new */
@@ -40,7 +41,8 @@ new Vue({
   el: '#app',
   router,
   store,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>'
 })
-

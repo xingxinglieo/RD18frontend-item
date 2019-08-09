@@ -9,14 +9,17 @@
     background-color: rgba(0,0,0,.5);
     "
   >
+  <!-- 遮盖层 -->
   <component :is="upload"></component>
 </div>    
 </template>
 <script>
 import content from "./uploadcontent"
+import onlyphoto from "./onlyphoto"
 export default {
     components:{
         'mycontent': content,
+        'myphoto': onlyphoto,
     },
     data() {
         return{

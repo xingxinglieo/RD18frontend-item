@@ -1,5 +1,4 @@
 <template>
-  <!-- 遮盖层 -->
   <div id="uploadContent">
     <i class="el-icon-close"></i>
     <photo ref="upLoadPhoto"></photo>
@@ -98,7 +97,8 @@ export default {
         message: this.$createElement("tabid", {
           props: {
             placeholder: this.placeholder
-          }
+          },
+          ref:'select'
         }),
         showCancelButton: true,
         confirmButtonText: "发表",
@@ -108,7 +108,8 @@ export default {
             instance.confirmButtonLoading = true;
             instance.confirmButtonText = "发表中...";
             //
-            let data = this.createFormData();
+            console.log(instance)
+            let data = this.createFormData(instance);
             this.$axios({
               method: "post",
               url: "/travel/post",
@@ -154,7 +155,7 @@ export default {
       }).catch(() => {}); //必须要添加catch 否则报错
       //
     },
-    createFormData() {
+    createFormData(instance) {
       let myformData = new FormData();
       for (
         let index = 0;
@@ -166,13 +167,16 @@ export default {
       myformData.append("title", this.title);
       myformData.append("content", this.content);
       myformData.append("id", 0);
-      myformData.append(
-        "tabId",
-        document.querySelector('input[placeholder="' + this.placeholder + '"]')
-          .value
-      );
+      let tabId = 2;
+      let Dom = document.querySelector('.el-select')
+      instance.$children.forEach(element => {
+        if(element.$el===Dom){
+          tabId = element.value
+        }
+      });
+      myformData.append("tabId",tabId);
       return myformData;
-    }
+    },
   },
   computed: {
     denyExceedLimit() {
@@ -188,8 +192,8 @@ $red: #e74b37;
   width: 500px;
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 1%;
+  transform: translate(-50%, 0);
   z-index: 1041;
   border-radius: 4px;
   background-color: white;

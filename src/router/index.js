@@ -6,7 +6,6 @@ import AlterUserInfo from '@/components/Alter-info/AlterInfo'
 import AlterMailboxOrPassword from '@/components/Alter-info/AlterMailboxOrPassword'
 import uploadcontent from '@/components/Release/upload'
 import cardNote from '@/components/CardNote/cardNote'
-import onlyphoto from '@/components/Release/onlyphoto'
 Vue.use(Router)
 export default new Router({
 	routes: [
@@ -27,18 +26,13 @@ export default new Router({
 			component: AlterMailboxOrPassword
 		},
 		{
-			path: '/upcontent',
+			path: '/upload',
 			component:uploadcontent
 		},
 		{
 			path: '/cardnote',
 			component: cardNote
 		},
-		{
-			path:'/onlyphoto',
-			component:onlyphoto 
-		}
-
 	],
 	mode: 'history'
 })
