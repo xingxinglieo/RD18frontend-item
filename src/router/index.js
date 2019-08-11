@@ -1,38 +1,124 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// import HelloWorld from '@/components/HelloWorld'
+import Interface from '@/components/Home/Interface'
+import logincontain from '@/components/Login/LoginContain'
+import WaterFall from '@/components/Home/WaterFall'
+import Recommendation from '@/components/Recommendation/navigation_face/OfficialNavigation'
 import Page from '@/components/PhotoWall/Page'
-import Home from '@/components/Home/Home'
 import AlterUserInfo from '@/components/Alter-info/AlterInfo'
 import AlterMailboxOrPassword from '@/components/Alter-info/AlterMailboxOrPassword'
 import uploadcontent from '@/components/Release/upload'
 import cardNote from '@/components/CardNote/cardNote'
 Vue.use(Router)
 export default new Router({
-	routes: [
-		{
-			path: '/page',
-			component: Page
-		},
-		{
-			path: '/home',
-			component: Home
-		},
-		{
-			path: '/alterMyInfo',
-			component: AlterUserInfo
-		},
-		{
-			path: '/alterMailboxOrPassword',
-			component: AlterMailboxOrPassword
-		},
-		{
-			path: '/upload',
-			component:uploadcontent
-		},
-		{
-			path: '/cardnote',
-			component: cardNote
-		},
-	],
-	mode: 'history'
+  routes: [
+    {
+      path: '/', name: 'HelloWorld',
+      redirect: '/interface'
+    },
+    {
+      path: '/login',
+      component: logincontain
+    },
+    {
+      path: '/page',
+      component: Page
+    },
+    {
+      path: '/interface',
+      component: Interface,  // 主界面
+      children: [
+        {
+          path: '',
+          name: 'fall',
+          component: WaterFall
+        },
+        {
+          path: '/interface/recommend',  // 大数据推荐
+          name: 'Recommendation',
+          component: Recommendation,
+          children: [
+            {
+              path: '/interface/recommend/cate',
+              name: 'cate',
+              component: () => import('@/components/Recommendation/navigation_face/Cate')
+            },
+            {
+              path: '/interface/recommend/route',
+              name: 'route',
+              component: () => import('@/components/Recommendation/navigation_face/Route')
+            },
+            {
+              path: '/interface/recommend/spot',
+              name: 'spot',
+              component: () => import('@/components/Recommendation/navigation_face/Spot')
+            }
+          ]
+        },
+        {
+          path: '/interface/management', // 好友
+          name: 'management',
+          component: () => import('@/components/Friend_management/Navigation'),
+          children: [
+            {
+              path: '/interface/management/allUser',
+              name: 'allUser',
+              component: () => import('@/components/Friend_management/ShowList')
+            },
+            {
+              path: '/interface/management/friends',
+              name: 'friends',
+              component: () => import('@/components/Friend_management/ShowList')
+            },
+            {
+              path: '/interface/management/fans',
+              name: 'fans',
+              component: () => import('@/components/Friend_management/ShowList')
+            },
+            {
+              path: '/interface/management/attention',
+              name: 'attention',
+              component: () => import('@/components/Friend_management/ShowList')
+            },
+            {
+              path: '/interface/management/blacklist ',
+              name: 'blacklist',
+              component: () => import('@/components/Friend_management/ShowList')
+            }
+          ]
+        },
+        {
+          path: '/interface/travel',  // 游记
+          name: 'travel',
+          component: () => import('@/components/Home/WaterFall')
+        }
+      ]
+    },
+    {
+      path: '/details',
+      name: 'details',
+      component: () => import('@/components/Recommendation/details/Details'),
+    },
+    {
+      path: '/alterMyInfo',
+      component: () => import('@/components/Alter_info/AlterInfo'),
+      meta: {
+        keepAlive: true
+      }
+    },
+    {
+      path: '/alterMailboxOrPassword',
+      component: () => import('@/components/Alter_info/AlterMailboxOrPassword')
+    },
+    {
+      path: '/upcontent',
+      component: uploadcontent
+    },
+    {
+      path: '/cardnote',
+      component: cardNote
+    },
+  ],
+  mode: 'history'
 })

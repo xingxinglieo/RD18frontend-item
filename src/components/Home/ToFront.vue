@@ -6,6 +6,7 @@
     v-on:mouseout="clickon = !clickon"
     v-show="finish == true" 
     v-on:click="backToTop()"
+    title="置顶"
   >
     <svg class="icon" aria-hidden="true" v-show="clickon == false">
       <use xlink:href="#iconxiangshang" />
@@ -27,23 +28,24 @@ export default {
   },
   methods: {
     backToTop() {
-      var timer = null;
-      cancelAnimationFrame(timer);
-      //获取当前毫秒数
-      var startTime = +new Date();
-      //获取当前页面的滚动高度
-      var b = document.body.scrollTop || document.documentElement.scrollTop;
-      var d = 500;
-      var c = b;
-      timer = requestAnimationFrame(function func() {
-        var t = d - Math.max(0, startTime - +new Date() + d);
-        document.documentElement.scrollTop = document.body.scrollTop =
-          (t * -c) / d + b;
-        timer = requestAnimationFrame(func);
-        if (t == d) {
-          cancelAnimationFrame(timer);
-        }
-      });
+      // var timer = null;  //原生JS
+      // cancelAnimationFrame(timer);
+      // //获取当前毫秒数
+      // var startTime = +new Date();
+      // //获取当前页面的滚动高度
+      // var b = document.body.scrollTop || document.documentElement.scrollTop;
+      // var d = 500;
+      // var c = b;
+      // timer = requestAnimationFrame(function func() {
+      //   var t = d - Math.max(0, startTime - +new Date() + d);
+      //   document.documentElement.scrollTop = document.body.scrollTop =
+      //     (t * -c) / d + b;
+      //   timer = requestAnimationFrame(func);
+      //   if (t == d) {
+      //     cancelAnimationFrame(timer);
+      //   }
+      // });
+      $('html,body').animate({ scrollTop: 0 }, 500);
     }
   },
   mounted() {
@@ -73,11 +75,13 @@ export default {
     opacity: 1;
   }
 }
+
 .to-front {
   position: fixed;
   width: 40px;
   height: 40px;
   margin-left: 93%;
+  margin-top: 17%;
   border: 1px solid #333333;
   border-radius: 50%;
   cursor: pointer;
@@ -97,9 +101,11 @@ export default {
        -o-animation-iteration-count: 1;
           animation-iteration-count: 1;
 }
+
 .to-front:hover {
   border-color: #e74b37;
 }
+
 .to-front .icon {
   width: 2em;
   height: 2em;
