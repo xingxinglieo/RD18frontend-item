@@ -89,12 +89,12 @@
                   @click.stop="showAddressSelect = !showAddressSelect, showGenderSelect = false, showBirthSelect = false"
                 />
               </div>
-              <!-- <v-distpicker
+              <v-distpicker
                 v-show="showAddressSelect"
                 @province="onChangeProvince"
                 @city="onChangeCity"
                 @area="onChangeArea"
-              ></v-distpicker> -->
+              ></v-distpicker>
               <div class="user-mailbox info-point">
                 <svg class="icon" aria-hidden="true">
                   <use xlink:href="#iconicon-test" />
@@ -170,7 +170,7 @@
 
 <script>
 import $ from "jquery";
-// import VDistpicker from "v-distpicker"; // 省市区联动
+import VDistpicker from "v-distpicker"; // 省市区联动
 import Preference from "./Preference";
 
 export default {
