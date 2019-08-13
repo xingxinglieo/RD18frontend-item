@@ -1,7 +1,7 @@
 <template>
 		<div id="app" @click="$store.commit('closeLoginContain');">
 			<router-view></router-view>
-			<login-contain></login-contain>
+			<!-- <login-contain></login-contain> -->
 		</div>
 </template>
  

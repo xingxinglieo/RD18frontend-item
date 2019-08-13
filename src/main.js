@@ -9,8 +9,11 @@ import './element-variables.scss';
 import Vuex from 'vuex';
 import store from './store/index'
 import Qs from 'qs'
-axios.defaults.baseURL = 'http://47.112.212.177:80/qinglv'; //配置全局URL 待写
+// axios.defaults.baseURL = 'http://47.112.212.177:80/qinglv'; //配置全局URL 待写
+axios.defaults.baseURL = '/api'; //配置全局URL 待写
 axios.defaults.timeout = 2500;
+axios.defaults.crossDomain = true;
+axios.defaults.withCredentials = true; 
 Vue.prototype.$axios = axios;
 Vue.prototype.$Qs = Qs;
 Vue.use(Vuex); 
