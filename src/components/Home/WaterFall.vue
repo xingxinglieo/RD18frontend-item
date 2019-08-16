@@ -8,14 +8,14 @@
         v-bind:class="{item: !hoverOn, 'item-move': hoverOn}"
       >
         <div class="picture-chunk" @mouseover="start()" @mouseout="stop()">
-          <transition-group name="image">
+          <!-- <transition-group name="image"> -->
             <img
               :src="photo.src"
               v-for="(photo,index) in item.photos"
               :key="index"
               v-show="index == showIndex"
             />
-          </transition-group>
+          <!-- </transition-group> -->
         </div>
         <div class="info">
           <div class="info-chunk">
@@ -41,14 +41,14 @@
           v-bind:class="{item: !hoverOn, 'item-move': hoverOn}"
         >
           <div class="picture-chunk" @mouseover="start()" @mouseout="stop()">
-            <transition-group name="image">
+            <!-- <transition-group name="image"> -->
               <img
                 :src="photo.src"
                 v-for="(photo,index) in item.photos"
                 :key="index"
                 v-show="index == showIndex"
               />
-            </transition-group>
+            <!-- </transition-group> -->
           </div>
           <div class="info">
             <div class="info-chunk">
@@ -75,14 +75,14 @@
           v-bind:class="{item: !hoverOn, 'item-move': hoverOn}"
         >
           <div class="picture-chunk" @mouseover="start()" @mouseout="stop()">
-            <transition-group name="image">
+            <!-- <transition-group name="image"> -->
               <img
                 :src="photo.src"
                 v-for="(photo,index) in item.photos"
                 :key="index"
                 v-show="index == showIndex"
               />
-            </transition-group>
+            <!-- </transition-group> -->
           </div>
           <div class="info">
             <div class="info-chunk">
@@ -109,14 +109,14 @@
           v-bind:class="{item: !hoverOn, 'item-move': hoverOn}"
         >
           <div class="picture-chunk" @mouseover="start()" @mouseout="stop()">
-            <transition-group name="image">
+            <!-- <transition-group name="image"> -->
               <img
                 :src="photo.src"
                 v-for="(photo,index) in item.photos"
                 :key="index"
                 v-show="index == showIndex"
               />
-            </transition-group>
+            <!-- </transition-group> -->
           </div>
           <div class="info">
             <div class="info-chunk">
@@ -143,14 +143,14 @@
           v-bind:class="{item: !hoverOn, 'item-move': hoverOn}"
         >
           <div class="picture-chunk" @mouseover="start()" @mouseout="stop()">
-            <transition-group name="image">
+            <!-- <transition-group name="image"> -->
               <img
                 :src="photo.src"
                 v-for="(photo,index) in item.photos"
                 :key="index"
                 v-show="index == showIndex"
               />
-            </transition-group>
+            <!-- </transition-group> -->
           </div>
           <div class="info">
             <div class="info-chunk">

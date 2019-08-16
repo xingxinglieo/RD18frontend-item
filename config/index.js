@@ -18,13 +18,13 @@ module.exports = {
     autoOpenBrowser: true,
     proxyTable: {
         //综合收件
-        '/api': {
-            target: "http://47.112.212.177:80/qinglv", //开发环境
-            changeOrigin: true,
-            pathRewrite: {
-                '^/api': ''
-            }
-        },
+        // '/api': {
+        //     target: "http://47.112.212.177:80/qinglv", //开发环境
+        //     changeOrigin: true,
+        //     pathRewrite: {
+        //         '^/api': ''
+        //     }
+        // },
     },
     //是否使用 cssSourceMap
     cssSourceMap: false
