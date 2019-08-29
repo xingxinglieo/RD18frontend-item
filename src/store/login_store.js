@@ -1,22 +1,22 @@
-export default{
-    state: {
-      showLoginContain: false,
-      loginState: false,
-      userId : 1,
+// 登录状态
+export default {
+  state: {
+    showLoginContain: false,
+    loginState: false,
+  },
+  getters: {
+
+  },
+  mutations: {
+    closeLoginContain(state) {
+      if (state.showLoginContain === true)
+        state.showLoginContain = false;
     },
-    getters: {
-  
+    openLoginContain(state) {
+      state.showLoginContain = true;
     },
-    mutations: {
-      closeLoginContain(state) {
-        if (state.showLoginContain === true)
-          state.showLoginContain = false;
-      },
-      openLoginContain(state) {
-        state.showLoginContain = true;
-      },
-      chageLoginState(state) {
-        state.loginState = !state.loginState;
-      }
-    },
-  }
+    chageLoginState(state) {
+      state.loginState = !state.loginState;
+    }
+  },
+}
