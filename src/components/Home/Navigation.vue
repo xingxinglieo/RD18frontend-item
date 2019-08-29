@@ -113,7 +113,7 @@
             <use xlink:href="#icondongtai1-copy" />
           </svg>
         </div>
-        <p class="point-name">照片墙</p>
+        <p class="point-name">动态</p>
       </div>
     </div>
   </div>
@@ -175,7 +175,10 @@ export default {
           this.$router.push({});
           break;
         case 4:
-          this.$router.push({});
+          this.$router.push({
+            path: '/interface/chatroom',
+            name: 'chatroom',
+          });
           break;
         case 5:
           switch (this.$store.state.management.showIndex) {
@@ -214,7 +217,7 @@ export default {
           }
           break;
         case 6:
-          this.$store.state.waterfall.url = '/search/travel';
+          this.$store.state.waterfall.url = '/travel/preview';
           this.$router.push({
             path: "/interface/travel", // 游记
             name: "travel"

@@ -53,9 +53,8 @@
 		},
 		computed: {
 			show() {
-				return this.$store.state.showLoginContain && (!this.$store.state.loginState)
+				return this.$store.state.login.showLoginContain && (!this.$store.state.login.loginState)
 			},
-			
 		},
 	}
 </script>

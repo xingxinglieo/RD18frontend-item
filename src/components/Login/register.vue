@@ -80,6 +80,8 @@
 					)
 					.then(data => {
 						this.throttle = false;
+						console.log(data);
+						
 						if (data.result === 'success') {
 							this.$message({
 								message: '注册成功',

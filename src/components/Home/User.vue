@@ -1,10 +1,18 @@
 <template>
   <!-- 用户相关信息组件 -->
-  <div class="user" v-on:mouseenter="change1 = false, change2 = true, extend(), show = !show"
-        v-on:mouseleave="change1 = true, change2 = false, shrink(), show = !show">
-    <div>
-      <div
-        v-bind:class="{state1: change1, state2: change2 }"
+  <div class="user" v-on:mouseenter="show = !show"
+        v-on:mouseleave="show = !show">
+    <div class="avatar"  v-show="!show">
+      <div class="state1"
+      >
+        <!-- 未登录时展示的icon，登陆后展示用户的头像 -->
+        <svg class="icon1" aria-hidden="true">
+          <use xlink:href="#iconyonghu" />
+        </svg>
+      </div>
+    </div>
+    <div class="avatar" v-show="show">
+      <div class="state1"
       >
         <!-- 未登录时展示的icon，登陆后展示用户的头像 -->
         <svg class="icon1" aria-hidden="true">
@@ -110,6 +118,7 @@ export default {
       loginState: false,
       change1: true,
       change2: false,
+      change3: false,
       show: false,
       nickName: '',
       gender: '',
@@ -122,12 +131,6 @@ export default {
     };
   },
   methods: {
-    extend() {
-      $(".navigation").css("z-index", "-1");
-    },
-    shrink() {
-      $(".navigation").css("z-index", "1");
-    },
     // 展示登录注册界面
     toLogin() {
       this.$router.push({
@@ -157,6 +160,14 @@ export default {
   width: 250px;
 }
 
+.avatar {
+  position: absolute;
+  top: 10px;
+  z-index: 716;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 @keyframes extend-avatar {
   0% {
     transform: scale(1, 1) translateY(0);
@@ -177,22 +188,13 @@ export default {
   border: 1.5px solid rgb(236, 92, 92);
   border-radius: 50%;
   cursor: pointer;
+  transition: transform .5s;
 }
 
-.state2 {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  margin-right: auto;
-  margin-left: auto;
-  border: 1.5px solid rgb(236, 92, 92);
-  border-radius: 50%;
-  cursor: pointer;
-  animation: extend-avatar .5s;
-  animation-fill-mode: forwards;
+.state1:hover {
+  transform: scale(2, 2) translateY(10px);
 }
+
 
 .icon1 {
   width: 2em;
@@ -204,7 +206,7 @@ export default {
 
 @keyframes up-show {
   from {
-    transform: translateY(47px);
+    transform: translateY(20px);
     opacity: 0;
   }
   to {
@@ -222,11 +224,14 @@ export default {
 }
 
 .show-info {
+  position: absolute;
+  top: 55px;
   display: block;
   width: 250px;
   height: auto;
   border-radius: 10px;
   background-color: #fff;
+  z-index: 715;
 }
 
 .to-login {

@@ -1,26 +1,23 @@
 <template>
   <!-- 瀑布流 -->
   <div class="waterfall">
-    <div class="col" ref="col1" v-for="(item, index) in dataList1" :key="index">
-      <div
-        @mouseover="hoverOn = !hoverOn"
-        @mouseout="hoverOn = !hoverOn"
-        v-bind:class="{item: !hoverOn, 'item-move': hoverOn}"
-      >
-        <div class="picture-chunk" @mouseover="start()" @mouseout="stop()">
-          <transition-group name="image">
-            <img
-              :src="photo.src"
-              v-for="(photo,index) in item.photos"
-              :key="index"
-              v-show="index == showIndex"
-            />
-          </transition-group>
+    <div id="col1">
+      <div class="item" v-for="(item, index) in dataList1" :key="index" @click="fetchDetail()">
+        <div class="picture-chunk">
+          <img
+            :src="photo"
+            v-for="(photo,index) in item.photos"
+            :key="index"
+            v-show="index == showindex"
+          />
         </div>
         <div class="info">
+           <div class="title">
+            <p>{{item.title}}</p>
+          </div>
           <div class="info-chunk">
             <div class="avatar-chunk">
-              <img item.headPortrait />
+              <img :src="item.headPortrait" />
             </div>
             <span class="nick-name">{{item.nickName}}</span>
             <div class="prise">
@@ -33,139 +30,122 @@
         </div>
       </div>
     </div>
-    <div class="col" ref="col2">
+    <div id="col2">
       <div class="item" v-for="(item, index) in dataList2" :key="index">
-        <div
-          @mouseover="hoverOn = !hoverOn"
-          @mouseout="hoverOn = !hoverOn"
-          v-bind:class="{item: !hoverOn, 'item-move': hoverOn}"
-        >
-          <div class="picture-chunk" @mouseover="start()" @mouseout="stop()">
-            <transition-group name="image">
-              <img
-                :src="photo.src"
-                v-for="(photo,index) in item.photos"
-                :key="index"
-                v-show="index == showIndex"
-              />
-            </transition-group>
+        <div class="picture-chunk">
+          <img
+            :src="photo"
+            v-for="(photo,index) in item.photos"
+            :key="index"
+            v-show="index == showindex"
+          />
+        </div>
+        <div class="info">
+          <div class="title">
+            <p>{{item.title}}</p>
           </div>
-          <div class="info">
-            <div class="info-chunk">
-              <div class="avatar-chunk">
-                <img item.headPortrait />
-              </div>
-              <span class="nick-name">{{item.nickName}}</span>
-              <div class="prise">
-                <svg class="icon" aria-hidden="true">
-                  <use xlink:href="#icondianzan" />
-                </svg>
-                <span class="prise-number">{{item.starNum}}</span>
-              </div>
+          <div class="info-chunk">
+            <div class="avatar-chunk">
+              <img :src="item.headPortrait" />
+            </div>
+            <span class="nick-name">{{item.nickName}}</span>
+            <div class="prise">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icondianzan" />
+              </svg>
+              <span class="prise-number">{{item.starNum}}</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col" ref="col3">
+    <div id="col3">
       <div class="item" v-for="(item, index) in dataList3" :key="index">
-        <div
-          @mouseover="hoverOn = !hoverOn"
-          @mouseout="hoverOn = !hoverOn"
-          v-bind:class="{item: !hoverOn, 'item-move': hoverOn}"
-        >
-          <div class="picture-chunk" @mouseover="start()" @mouseout="stop()">
-            <transition-group name="image">
-              <img
-                :src="photo.src"
-                v-for="(photo,index) in item.photos"
-                :key="index"
-                v-show="index == showIndex"
-              />
-            </transition-group>
+        <div class="picture-chunk">
+          <img
+            :src="photo"
+            v-for="(photo,index) in item.photos"
+            :key="index"
+            v-show="index == showindex"
+          />
+        </div>
+        <div class="info">
+            <div class="title">
+            <p>{{item.title}}</p>
           </div>
-          <div class="info">
-            <div class="info-chunk">
-              <div class="avatar-chunk">
-                <img item.headPortrait />
-              </div>
-              <span class="nick-name">{{item.nickName}}</span>
-              <div class="prise">
-                <svg class="icon" aria-hidden="true">
-                  <use xlink:href="#icondianzan" />
-                </svg>
-                <span class="prise-number">{{item.starNum}}</span>
-              </div>
+          <div class="info-chunk">
+            <div class="avatar-chunk">
+              <img :src="item.headPortrait" />
+            </div>
+            <span class="nick-name">{{item.nickName}}</span>
+            <div class="prise">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icondianzan" />
+              </svg>
+              <span class="prise-number">{{item.starNum}}</span>
             </div>
           </div>
+        
         </div>
       </div>
     </div>
-    <div class="col" ref="col4">
+    <div id="col4">
       <div class="item" v-for="(item, index) in dataList4" :key="index">
-        <div
-          @mouseover="hoverOn = !hoverOn"
-          @mouseout="hoverOn = !hoverOn"
-          v-bind:class="{item: !hoverOn, 'item-move': hoverOn}"
-        >
-          <div class="picture-chunk" @mouseover="start()" @mouseout="stop()">
-            <transition-group name="image">
-              <img
-                :src="photo.src"
-                v-for="(photo,index) in item.photos"
-                :key="index"
-                v-show="index == showIndex"
-              />
-            </transition-group>
+        <div class="picture-chunk">
+          <img
+            :src="photo"
+            v-for="(photo,index) in item.photos"
+            :key="index"
+            v-show="index == showindex"
+          />
+        </div>
+        <div class="info">
+           <div class="title">
+            <p>{{item.title}}</p>
           </div>
-          <div class="info">
-            <div class="info-chunk">
-              <div class="avatar-chunk">
-                <img item.headPortrait />
-              </div>
-              <span class="nick-name">{{item.nickName}}</span>
-              <div class="prise">
-                <svg class="icon" aria-hidden="true">
-                  <use xlink:href="#icondianzan" />
-                </svg>
-                <span class="prise-number">{{item.starNum}}</span>
-              </div>
+          <div class="info-chunk">
+            <div class="avatar-chunk">
+              <img :src="item.headPortrait" />
+            </div>
+            <span class="nick-name">{{item.nickName}}</span>
+            <div class="prise">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icondianzan" />
+              </svg>
+              <span class="prise-number">{{item.starNum}}</span>
             </div>
           </div>
+         
         </div>
       </div>
     </div>
-    <div class="col" ref="col5">
+    <div id="col5">
       <div class="item" v-for="(item, index) in dataList5" :key="index">
-        <div
-          @mouseover="hoverOn = !hoverOn"
-          @mouseout="hoverOn = !hoverOn"
-          v-bind:class="{item: !hoverOn, 'item-move': hoverOn}"
-        >
-          <div class="picture-chunk" @mouseover="start()" @mouseout="stop()">
-            <transition-group name="image">
-              <img
-                :src="photo.src"
-                v-for="(photo,index) in item.photos"
-                :key="index"
-                v-show="index == showIndex"
-              />
-            </transition-group>
+        <div class="picture-chunk">
+          <img
+            :src="photo"
+            v-for="(photo,index) in item.photos"
+            :key="index"
+            v-show="index == showindex"
+          />
+        </div>
+        <div class="info">
+           <div class="title">
+            <p>{{item.title}}</p>
           </div>
-          <div class="info">
-            <div class="info-chunk">
-              <div class="avatar-chunk">
-                <img item.headPortrait />
-              </div>
-              <span class="nick-name">{{item.nickName}}</span>
-              <div class="prise">
-                <svg class="icon" aria-hidden="true">
-                  <use xlink:href="#icondianzan" />
-                </svg>
-                <span class="prise-number">{{item.starNum}}</span>
-              </div>
+          <div class="info-chunk">
+            <div class="avatar-chunk">
+              <img :src="item.headPortrait" />
+            </div>
+            <span class="nick-name">{{item.nickName}}</span>
+            <div class="prise">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icondianzan" />
+              </svg>
+              <span class="prise-number">{{item.starNum}}</span>
             </div>
           </div>
+         
         </div>
       </div>
     </div>
@@ -173,77 +153,141 @@
 </template>
 
 <script>
-import $ from "jquery";
-
 export default {
   name: "waterfall",
   data() {
     return {
+      listCollection: [],
       dataList1: [],
       dataList2: [],
       dataList3: [],
       dataList4: [],
       dataList5: [],
-      listCollection: [],
-      windowHeight: window.screen.height + 500,
-      imgs: [],
-      showIndex: 0,
-      hoverOn: false
+      windowHeight: window.screen.height + 200,
+      num: 0,
+      size: 20,
+      arr: 0,
+      showindex: 0
     };
   },
   methods: {
     selectCol() {
-      var getColHeight = ref => {
-        return this.$refs[ref].offsetHeight;
-      };
-      var height1 = getColHeight("col1");
-      var height2 = getColHeight("col2");
-      var height3 = getColHeight("col3");
-      var height4 = getColHeight("col4");
-      var height5 = getColHeight("col5");
+      var height1 = $("#col1").height();
+      var height2 = $("#col2").height();
+      var height3 = $("#col3").height();
+      var height4 = $("#col4").height();
+      var height5 = $("#col5").height();
+      console.log(height1);
+
       switch (Math.min(height1, height2, height3, height4, height5)) {
         case height1:
-          return "dataList1";
+          return 1;
           break;
         case height2:
-          return "dataList2";
+          return 2;
           break;
         case height3:
-          return "dataList3";
+          return 3;
           break;
         case height4:
-          return "dataList4";
+          return 4;
           break;
         case height5:
-          return "dataList5";
+          return 5;
           break;
       }
     },
-    addDataAccount(arg) {
-      var menu = this.listCollection;
-      var index = arg || 0;
-      // var refName = this.selectCol();
-      if (menu.length > index) {
-        this[refName].push[this.listCollection[index]];
+    addDataAccount() {
+      var ref = this.selectCol();
+      if (this.listCollection.length > this.arr) {
+        switch (ref) {
+          case 1:
+            this.dataList1.push(this.listCollection[this.arr]);
+            break;
+          case 2:
+            this.dataList2.push(this.listCollection[this.arr]);
+            break;
+          case 3:
+            this.dataList3.push(this.listCollection[this.arr]);
+            break;
+          case 4:
+            this.dataList4.push(this.listCollection[this.arr]);
+            break;
+          case 5:
+            this.dataList5.push(this.listCollection[this.arr]);
+            break;
+          default:
+            break;
+        }
         this.$nextTick(() => {
-          this.addDataAccount(index + 1); // 回调
+          this.arr++;
+          this.addDataAccount(); // 回调
         });
       }
     },
     loadData() {
       if (document.documentElement.scrollTop > this.windowHeight - 200) {
-        this.windowHeight += 1000;
+        this.windowHeight += 200;
+        this.num += 20;
+        this.size += 20;
         this.sponserRequest();
       }
     },
-    sponserRequest() {
-      this.$axios({
-        url: "",
-        method: "get"
-      }).then(res => {
-        this.listCollection = res.data;
-        this.addDataAccount();
-      });
+    sponserRequest(id) {
+      var param;
+      if (id == "" || id == null) {
+        param = {
+          num: this.num,
+          size: this.size
+        };
+      } else {
+        param = {
+          num: this.num,
+          size: this.size,
+          categoryId: id
+        };
+      }
+      this.$axios
+        .get(this.$store.state.waterfall.url, {
+          params: param
+        })
+        .then(res => {
+          console.log(res);
+          if (res.data.result == "success") {
+            if (this.size == 10) {
+              this.listCollection = [];
+            }
+            for (var i = 0; i < res.data.message.length; i++) {
+              var star = res.data.message[i].starNum;
+              if (res.data.message[i].starNum == null) {
+                star = 0;
+              }
+              this.listCollection.push({
+                id: res.data.message[i].id,
+                userId: res.data.message[i].userId,
+                headPortrait:
+                  "http://47.112.212.177:80/requireImage/" +
+                  res.data.message[i].headPortrait,
+                nickName: res.data.message[i].nickName,
+                photos: res.data.message[i].photo,
+                starNum: star,
+                title: res.data.message[i].title
+              });
+            }
+            this.addDataAccount();
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    clearList() {
+      this.listCollection = [];
+      this.dataList1 = [];
+      this.dataList2 = [];
+      this.dataList3 = [];
+      this.dataList4 = [];
+      this.dataList5 = [];
     },
     start() {
       this.timer = setInterval(this.changeIndex, 2000);
@@ -257,34 +301,50 @@ export default {
       } else {
         this.showIndex++;
       }
+    },
+    searchTravelNotes(keyword) {
+      this.$axios.get('/search/travel', {
+        params: {
+          key: keyword,
+          num: this.num,
+          size: this.size
+        }
+      }).then((res) => {
+        console.log(res);
+        
+      }).catch((err) => {
+        console.log(err);
+      })
     }
   },
   mounted() {
-    this.addDataAccount();
+    this.sponserRequest();
     window.addEventListener("scroll", this.loadData());
   },
-  destroyed() {
+  beforeDestroy() {
     window.removeEventListener("scroll", this.loadData());
   }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .waterfall {
-  display: none;
-  display: flex;
-  flex-direction: row;
+  position: relative;
   width: 80%;
-  height: 800px;
-  margin-top: 10%;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
 }
 
-.waterfall .col {
-  flex: 1;
-  margin: 15px;
+#col1,
+#col2,
+#col3,
+#col4,
+#col5 {
+  float: left;
+  width: 18%;
+  margin: 1%;
+  min-height: 10px;
 }
 
 @keyframes item-up {
@@ -304,26 +364,17 @@ export default {
   box-shadow: 0 0 5px 5px #f0eded;
 }
 
+.item:hover {
+  opacity: 0.8;
+  background-color: rgb(238, 237, 237);
+}
+
 .item-move {
   margin-top: 10%;
   border-radius: 10px;
   background-color: #fff;
   cursor: pointer;
   box-shadow: 0 0 5px 5px #f0eded;
-  -webkit-animation: item-up 1s ease;
-  -moz-animation: item-up 1s ease;
-  -o-animation: item-up 1s ease;
-  animation: item-up 1s ease;
-  -webkit-animation-fill-mode: forwards;
-  -moz-animation-fill-mode: forwards;
-  -o-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-}
-
-.item img,
-.item-move img {
-  width: 100%;
-  border-radius: 10px 10px 0 0;
 }
 
 .picture-chunk {
@@ -334,26 +385,27 @@ export default {
 .picture-chunk img {
   position: relative;
   width: 100%;
+  border-radius: 4px 4px 0 0;
 }
 
 .info {
   padding-top: 5%;
-  border: 2px solid #b1afaf;
   border-radius: 0 0 10px 10px;
   border-top: 0;
 }
 
 .info-chunk {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   padding: 1% 0 1% 0;
 }
 
 .avatar-chunk {
   width: 30px;
   height: 30px;
-  border-radius: 50%;
+   border-radius: 50%;
 }
+
 @keyframes imgAction {
   from {
     transform: translateZ(-100%);
@@ -403,6 +455,14 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-</style>
 
+.title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  width: 90%;
+  margin: 10px auto;
+}
+</style>
 

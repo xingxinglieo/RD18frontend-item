@@ -1,8 +1,7 @@
-// 瀑布流状态
+// 聊天状态
 export default {
   state: {
-    url: '',
-    showIndex: 1
+    
   },
   getters: {
 

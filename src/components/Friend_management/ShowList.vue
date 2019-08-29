@@ -70,7 +70,6 @@ export default {
     },
     getList() {  // 获取列表
       this.list = [];
-      console.log(this.$store.state.management.previewUrl);
       var instance = this.$axios.create({
         headers: {
           "content-type": "application/x-www-form-urlencoded"

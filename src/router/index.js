@@ -6,8 +6,6 @@ import logincontain from '@/components/Login/LoginContain'
 import WaterFall from '@/components/Home/WaterFall'
 import Recommendation from '@/components/Recommendation/navigation_face/OfficialNavigation'
 import Page from '@/components/PhotoWall/Page'
-import AlterUserInfo from '@/components/Alter-info/AlterInfo'
-import AlterMailboxOrPassword from '@/components/Alter-info/AlterMailboxOrPassword'
 import uploadcontent from '@/components/Release/upload'
 import cardNote from '@/components/CardNote/cardNote'
 import onlyphoto from '@/components/Release/onlyphoto'
@@ -58,6 +56,11 @@ export default new Router({
           ]
         },
         {
+          path: '/interface/chatroom',
+          name: 'chatroom',
+          component: () => import('@/components/ChatRoom/Navigation')
+        },
+        {
           path: '/interface/management', // 好友
           name: 'management',
           component: () => import('@/components/Friend_management/Navigation'),
@@ -92,7 +95,7 @@ export default new Router({
         {
           path: '/interface/travel',  // 游记
           name: 'travel',
-          component: () => import('@/components/Home/WaterFall')
+          component: () => import('@/components/Travel/navigation')
         }
       ]
     },

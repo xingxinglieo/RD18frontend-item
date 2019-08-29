@@ -20,6 +20,8 @@
     "v-distpicker": "^1.2.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
+    "vue-waterfall": "^1.0.6",
+    "vuescroll": "^4.13.1",
     "vuex": "^3.1.1"
   },
   "devDependencies": {
