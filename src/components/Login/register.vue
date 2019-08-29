@@ -69,78 +69,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-	export default {
-		data() {
-			return {
-				email: '',
-				password: '',
-				confirm: '',
-				throttle: false, //节流 , 防止用户多次点击注册按钮
-			}
-		},
-		methods: {
-			sendRegisterRequest() {
-				this.throttle = true;
-				this.$axios.post(
-						'/user/register', {
-							params: {
-								userName: this.email,
-								password: this.password,
-							},
-						}
-					)
-					.then(data => {
-						this.throttle = false;
-						console.log(data);
-						
-						if (data.result === 'success') {
-							this.$message({
-								message: '注册成功',
-								type: 'success',
-								center: true,
-
-							})
-
-						} else {
-							this.$message({
-								message: '注册失败 , 此邮箱已注册',
-								type: 'error',
-								center: true,
-								duration: 1500,
-							})
-
-						}
-					})
-					.catch(data => {
-						this.throttle = false;
-						this.$message({
-							message: '连接失败 , 请检查网络或者联系管理员',
-							type: 'error',
-							center: true,
-							duration: 1500,
-						})
-					})
-			},
-		},
-		computed: {
-			isEmail: function() {
-				return /^([A-Za-z0-9_\-\.\u4e00-\u9fa5])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,8})$/.test(this.email)
-			},
-			isPassword: function() {
-				return /^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]{8,18}$/.test(this.password)
-			},
-			isConfirm: function() {
-				return this.password === this.confirm;
-			},
-			allRight: function() {
-				return this.isEmail && this.isPassword && this.isConfirm;
-			},
-		},
-
-
-	}
-=======
 export default {
   props: {
     publicKey: String
@@ -214,7 +142,6 @@ export default {
     }
   }
 };
->>>>>>> d86396abfc9b689da2503c8f18a5ea46bdd27b8d
 </script>
 
 <style lang="scss" scoped="scoped">
