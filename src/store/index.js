@@ -2,7 +2,6 @@ import Vue from 'vue'
 import vuex from 'vuex'
 Vue.use(vuex)
 
-import login_store from './login_store'
 import recommend_store from './recommend_store'
 import navigation_store from './navigation_store'
 import management_store from './friend_management_store'
@@ -19,6 +18,6 @@ export default new vuex.Store({
     'management': management_store,
     'waterfall': waterfall_store,
     'chatroom': chatroom_store,
-    'login_store':login_store,
+    'login':login_store,
   }
 })
