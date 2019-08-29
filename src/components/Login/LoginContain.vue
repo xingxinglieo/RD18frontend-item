@@ -1,7 +1,8 @@
 <!-- 这是登录组件的父组件 布局框 -->
 <template>
 	<transition name="el-fade-in">
-		<div id="outter" v-if="show" @click.stop="">
+		<!-- <div id="outter" v-if="show" @click.stop=""> -->
+		<div id="outter"  @click.stop="">
 			<el-container style="flex-direction: column;padding: 0 25px 20px;">
 				<div><i class="el-icon-close" @click="closeLoginContain"></i></div>
 				<div class="SignHeader">
@@ -11,7 +12,7 @@
 						TravelTalking, 我的旅行印记
 					</h2>
 				</div>
-				<component :is="trag"></component>
+				<component :is="trag" :publicKey="key"></component>
 			</el-container>
 			<div id="tragger">
 				<span @click="tragger">{{tra_content}}</span>
@@ -19,7 +20,6 @@
 		</div>
 	</transition>
 </template>
-
 <script>
 	import login from "./login"
 	import register from "./register"
@@ -34,7 +34,20 @@
 			return {
 				trag: "login",
 				tra_content: "没有账号?注册",
+				key:'',
 			}
+		},
+		created: function() {
+			this.$axios({
+				url:"/user/getKey",
+				method: "get",
+			})
+			.then(res=>{
+				this.key = res.data.message
+			})
+			.catch(res=>{
+
+			});
 		},
 		methods: {
 			tragger: function() {

@@ -34,8 +34,8 @@
             slot="reference"
             action
             list-type="picture-card"
-            :on-preview="handlePictureCardPreview"
-            :on-remove="handleRemove"
+            :on-remove="remove"
+            :on-change="change"
             :auto-upload="noAuto"
             :on-exceed="exceed"
             :multiple="true"
@@ -49,9 +49,6 @@
       <!-- 
 		下面这个是用来展示放大图的 
       -->
-      <el-dialog :visible.sync="dialogVisible">
-        <img width="100%" :src="dialogImageUrl" alt="倾旅" />
-      </el-dialog>
     </div>
   </transition>
 </template>
@@ -75,10 +72,19 @@ export default {
     this.fileurl = this.$refs.upload.uploadFiles;
   },
   methods: {
-    handleRemove(file, fileList) {},
-    handlePictureCardPreview(file) {
-      this.dialogImageUrl = file.url; //把文件的blob url 传给data
-      this.dialogVisible = true;
+     change(file,fileList){
+      this.photoUrl = file.url;
+      if(fileList.length===this.limit){
+        this.$refs.upload.$refs["upload-inner"].$el.style.display = "none"
+
+      }
+      else{
+        this.$refs.upload.$refs["upload-inner"].$el.style.display = 'inline-block'
+      }
+    },
+    remove(){
+      this.photoUrl = '';
+        this.$refs.upload.$refs["upload-inner"].$el.style.display = "inline-block"
     },
     exceed(fileList) {
       this.$message({
@@ -139,10 +145,6 @@ $scan: 38px;
   }
   .el-upload--picture-card i {
     font-size: 17px;
-  }
-  .el-upload-list--picture-card .el-upload-list__item-actions {
-    letter-spacing: -5px;
-    text-indent: -2px;
   }
   
 }

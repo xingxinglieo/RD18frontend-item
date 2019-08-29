@@ -6,36 +6,29 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
-    // Paths
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-    proxyTable: {},
-
+    assetsRoot: path.resolve(__dirname, "../dist"),
+    // 静态资源文件夹
+    assetsSubDirectory: "static",
+    // 发布路径
+    assetsPublicPath: "/",
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
-    port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
-    errorOverlay: true,
-    notifyOnErrors: true,
-    poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
-
-    
-    /**
-     * Source Maps
-     */
-
-    // https://webpack.js.org/configuration/devtool/#development
-    devtool: 'cheap-module-eval-source-map',
-
-    // If you have problems debugging vue-files in devtools,
-    // set this to false - it *may* help
-    // https://vue-loader.vuejs.org/en/options.html#cachebusting
-    cacheBusting: true,
-
-    cssSourceMap: true
-  },
-
+    host: "localhost",
+    // dev-server监听的端口
+    port: 8080,
+    autoOpenBrowser: true,
+    proxyTable: {
+        //综合收件
+        // '/api': {
+        //     target: "http://47.112.212.177:80/qinglv", //开发环境
+        //     changeOrigin: true,
+        //     pathRewrite: {
+        //         '^/api': ''
+        //     }
+        // },
+    },
+    //是否使用 cssSourceMap
+    cssSourceMap: false
+},
   build: {
     // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),
@@ -66,9 +59,9 @@ module.exports = {
     // Set to `true` or `false` to always turn it on or off
     bundleAnalyzerReport: process.env.npm_config_report
   },
-  proxyTable: {
-    '/': {
-      target: 'http://47.112.212.177:80/qinglv'
-    }
-  }
+  // proxyTable: {
+  //   '/': {
+  //     target: 'http://47.112.212.177:80/qinglv'
+  //   }
+  // }
 }

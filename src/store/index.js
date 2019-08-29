@@ -8,6 +8,8 @@ import navigation_store from './navigation_store'
 import management_store from './friend_management_store'
 import waterfall_store from './waterfall_store'
 import chatroom_store from './chatroom_store'
+import login_store from './login_store'
+
 
 export default new vuex.Store({
   modules: {
@@ -16,6 +18,7 @@ export default new vuex.Store({
     'navigation': navigation_store,
     'management': management_store,
     'waterfall': waterfall_store,
-    'chatroom': chatroom_store
+    'chatroom': chatroom_store,
+    'login_store':login_store,
   }
 })

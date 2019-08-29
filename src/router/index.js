@@ -8,7 +8,6 @@ import Recommendation from '@/components/Recommendation/navigation_face/Official
 import Page from '@/components/PhotoWall/Page'
 import uploadcontent from '@/components/Release/upload'
 import cardNote from '@/components/CardNote/cardNote'
-import onlyphoto from '@/components/Release/onlyphoto'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -123,10 +122,6 @@ export default new Router({
       path: '/cardnote',
       component: cardNote
     },
-    {
-      path: '/onlyphoto',
-      component: onlyphoto
-    }
   ],
   mode: 'history'
 })
